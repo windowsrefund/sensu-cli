@@ -328,8 +328,10 @@ module SensuCli
           opt :subscription, 'The subscription entries to return', :short => 's', :type => :string
           opt :limit, 'The number of aggregates to return', :short => 'l', :type => :string
           opt :offset, 'The number of aggregates to offset before returning', :short => 'o', :type => :string
+          opt :format, 'Available formats; single, table, json', :short => 'f', :type => :string
         end
         Trollop::die :offset, 'Offset depends on the limit option --limit ( -l )'.color(:red) if p[:offset] && !p[:limit]
+        Trollop::die :format, 'Available optional formats: single, table, json'.color(:red) if p[:format] != 'table' && p[:format] != 'single' && p[:format] != 'json' && p[:format]
         { :command => 'silenced', :method => 'Get', :fields => p }
       when 'create'
         p = Trollop::options do

@@ -1,3 +1,6 @@
+## 0.9.1 01/24/2018
+* Add --format to silenced list
+
 ## 0.9.0 01/18/2018
 * Add token authorization
 
